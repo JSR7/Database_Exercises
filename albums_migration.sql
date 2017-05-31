@@ -10,3 +10,4 @@ CREATE TABLE albums (
   sales   FLOAT,
   genre   VARCHAR(255)
 );
+.
