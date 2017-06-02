@@ -23,8 +23,21 @@ select * from employees where employment_date BETWEEN 1990 01 01 AND 1999 12 31 
 
 select *
 from employees
-where birth_date 
+where birth_date
 like '%-12-25'
 AND hire_date
 like '199%'
 order by birth_date, hire_date DESC;
+
+
+-- select concat(last_name, '', first_name) as 'full name', select 'birthdate' as 'DOB'
+-- from employees
+-- limit 10
+
+
+SELECT CONCAT (emp_no, '-', last_name, ",", first_name) AS full name,
+birth_date as DOB
+from employees
+limit 10;
+
+
