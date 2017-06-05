@@ -99,5 +99,7 @@ where gender = 'F' and emp_no IN (select emp_no from dept_manager);
 
 # BONUS Find all the department names that have female managers.
 
-select first_name, last_name
-from 
+select *
+from employees
+where gender = 'F'
+AND emp_no IN (select emp_no from dept_manager where to_date > now());
