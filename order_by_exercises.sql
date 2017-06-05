@@ -71,10 +71,33 @@ from employees
 where hire_date = ( select hire_date FROM employees where emp_no = 101010);
 
 
-
 # hire date= 1990-10-22
 
 
 # Find all the titles held by all employees with the first name Aamod.
+
+# select *
+# from title
+# where (select first_name from employees where first_name = "Aamod" );
+
+select *
+from titles
+  WHERE to_date > now() AND
+emp_no IN (select emp_no from employees where first_name = "Aamod" );
+
+
 # Find all the department managers that are female.
+
+# select first_name, last_name
+# from employees
+# where emp_no = (select emp_no from titles where title = 'technique leader'
+#   and select gender from employees where gender = 'F');
+
+select e.emp_no, e.first_name, e.last_name, e.gender
+from employees as e
+where gender = 'F' and emp_no IN (select emp_no from dept_manager);
+
 # BONUS Find all the department names that have female managers.
+
+select first_name, last_name
+from 
