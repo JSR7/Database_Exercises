@@ -52,3 +52,29 @@ where t.to_date > now()
 and de.to_date > now()
 and d.dept_name = 'customerservice'
 group by t.title;
+
+
+
+# Find all the employees with the same hire date as employee 101010 using a sub-query.
+
+# select *
+# from employees;
+
+# select first_name, last_name
+# from employees
+# where hire_date = 1990-10-22;
+
+
+
+select first_name, last_name, hire_date
+from employees
+where hire_date = ( select hire_date FROM employees where emp_no = 101010);
+
+
+
+# hire date= 1990-10-22
+
+
+# Find all the titles held by all employees with the first name Aamod.
+# Find all the department managers that are female.
+# BONUS Find all the department names that have female managers.
