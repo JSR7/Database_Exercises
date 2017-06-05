@@ -41,3 +41,14 @@ from employees
 limit 10;
 
 
+
+-- find current titles of employees currently in Customer service department
+select distinct t.title
+from titles as t
+join employees as e on t.emp_no = e.emp_no
+join dept_emp as de on 3.emp_no = de.emp_no
+join departments as d on de.dept_no = d.dept_no
+where t.to_date > now()
+and de.to_date > now()
+and d.dept_name = 'customerservice'
+group by t.title;
